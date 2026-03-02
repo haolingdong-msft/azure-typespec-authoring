@@ -1,0 +1,12 @@
+{
+  "name": "azure-typespec-authoring",
+  "description": "Azure TypeSpec API specification authoring plugin. Author, modify, and troubleshoot .tsp files for Azure ARM and data-plane API specifications.",
+  "version": "0.0.1-alpha",
+  "author": {
+    "name": "Microsoft",
+    "url": "https://www.microsoft.com"
+  },
+  "homepage": "https://github.com/Azure/azure-typespec-authoring",
+  "keywords": ["azure", "typespec", "api", "arm", "specification", "authoring"],
+  "skills": "skills/"
+}
