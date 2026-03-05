@@ -16,7 +16,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-. (Join-Path $PSScriptRoot '..' 'scripts' 'Helpers' 'AzSdkTool-Helpers.ps1')
+. (Join-Path $PSScriptRoot 'scripts' 'Helpers' 'AzSdkTool-Helpers.ps1')
 
 $toolInstallDirectory = $InstallDirectory ? $InstallDirectory : (Get-CommonInstallDirectory)
 
