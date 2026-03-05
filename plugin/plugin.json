@@ -8,5 +8,12 @@
   },
   "homepage": "https://github.com/Azure/azure-typespec-authoring",
   "keywords": ["azure", "typespec", "api", "arm", "specification", "authoring"],
-  "skills": "skills/"
+  "skills": "skills/",
+  "mcpServers": {
+    "azure-sdk-mcp": {
+      "type": "stdio",
+      "command": "pwsh",
+      "args": ["mcp/azure-sdk-mcp.ps1", "-Run"]
+    }
+  }
 }
