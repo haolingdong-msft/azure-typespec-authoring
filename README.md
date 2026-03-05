@@ -22,17 +22,16 @@ plugin/
 
 ## Installation
 
-```shell
-copilot plugin install ./plugin
+in an interactive copilot cli session:
+
+```
+/plugin install haolingdong-msft/azure-typespec-authoring:plugin
 ```
 
 ## Verify
 
-```shell
-copilot plugin list
-```
 
-Or in an interactive session:
+in an interactive session:
 
 ```
 /skills list
