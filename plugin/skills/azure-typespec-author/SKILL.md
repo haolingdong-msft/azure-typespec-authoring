@@ -7,11 +7,11 @@ description: "Author or modify Azure TypeSpec API specifications in the azure-re
 
 ## Quick Reference
 
-| Property | Value |
-|----------|-------|
-| **Services** | Azure TypeSpec API Specifications (ARM & Data-plane) |
+| Property      | Value                                                                     |
+| ------------- | ------------------------------------------------------------------------- |
+| **Services**  | Azure TypeSpec API Specifications (ARM & Data-plane)                      |
 | **MCP Tools** | `azsdk_typespec_generate_authoring_plan`, `azsdk_run_typespec_validation` |
-| **Best For** | Authoring, modifying, and troubleshooting `.tsp` files |
+| **Best For**  | Authoring, modifying, and troubleshooting `.tsp` files                    |
 
 ## When to Use This Skill
 
@@ -24,10 +24,10 @@ description: "Author or modify Azure TypeSpec API specifications in the azure-re
 
 ## MCP Tools
 
-| Tool | Command | Use |
-|------|---------|-----|
+| Tool                                     | Command                 | Use                                                                                   |
+| ---------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------- |
 | `azsdk_typespec_generate_authoring_plan` | Generate authoring plan | Produces a grounded plan for TypeSpec changes based on user request and existing code |
-| `azsdk_run_typespec_validation` | Run validation | Runs TypeSpec compilation and lint validation after edits |
+| `azsdk_run_typespec_validation`          | Run validation          | Runs TypeSpec compilation and lint validation after edits                             |
 
 ---
 
@@ -38,7 +38,7 @@ description: "Author or modify Azure TypeSpec API specifications in the azure-re
 1. **This skill is MANDATORY for ALL `.tsp` file edits.** Any request that modifies, creates, or deletes content in a `.tsp` file MUST follow the full workflow — regardless of how simple the change appears. There are no "trivial" TypeSpec edits. Even changing a single `?` (optional → required) can be a breaking change requiring versioning decorators.
 2. **Do not edit any files until you have required inputs and have retrieved a solution.** Use the `azsdk_typespec_generate_authoring_plan` MCP tool.
 3. **Make minimal, scoped edits** to satisfy the request. Avoid refactors unless explicitly asked.
-4. **After edits, validate** (compile / lint / emitter checks if available) and report results.
+4. **After edits, validate** using the `azsdk_run_typespec_validation` MCP tool and report results.
 5. **Always provide references** (titles / sections / links) from retrieved context that justify the recommended approach.
 
 ---
@@ -47,22 +47,20 @@ description: "Author or modify Azure TypeSpec API specifications in the azure-re
 
 > **All 6 steps are MANDATORY. Do NOT skip any step.**
 
-| Step | Name | Tool / File | Gate |
-|------|------|-------------|------|
-| 1 | [Intake & Clarification](#step-1-intake--clarification) | `references/intake-arm.md` | All inputs collected + analysis displayed |
-| 2 | [Retrieve Solution](#step-2-retrieve-solution) | `azsdk_typespec_generate_authoring_plan` | Grounded plan returned |
-| 3 | [Apply Changes](#step-3-apply-changes) | Editor | User confirms uncertainties |
-| 4 | [Validate](#step-4-validate) | `azsdk_run_typespec_validation` | Compilation passes |
-| 5 | [Summarize](#step-5-summarize) | — | Summary displayed to user |
-| 6 | [Next Steps](#step-6-next-steps) | `references/next-steps-arm.md` | Follow-up actions presented |
+| Step | Name                                                    | Tool / File                              | Gate                                      |
+| ---- | ------------------------------------------------------- | ---------------------------------------- | ----------------------------------------- |
+| 1    | [Intake & Clarification](#step-1-intake--clarification) | `references/intake-arm.md`               | All inputs collected + analysis displayed |
+| 2    | [Retrieve Solution](#step-2-retrieve-solution)          | `azsdk_typespec_generate_authoring_plan` | Grounded plan returned                    |
+| 3    | [Apply Changes](#step-3-apply-changes)                  | Editor                                   | User confirms uncertainties               |
+| 4    | [Validate](#step-4-validate)                            | `azsdk_run_typespec_validation`          | Compilation passes                        |
+| 5    | [Summarize](#step-5-summarize)                          | —                                        | Summary displayed to user                 |
+| 6    | [Next Steps](#step-6-next-steps)                        | `references/next-steps-arm.md`           | Follow-up actions presented               |
 
 ---
 
 ### Step 1: Intake & Clarification
 
 Follow `references/intake-arm.md` to gather all required inputs.
-
-> **⚠️ CRITICAL**: Step 1 includes a **mandatory sub-step (Step 1.3)** that requires you to display the **📊 TypeSpec Project Analysis** summary in the chat. You **MUST** output this analysis before proceeding. Do **NOT** skip Step 1.3 or jump ahead to Step 2 without first displaying the analysis results to the user. This is a hard requirement — no exceptions.
 
 Do NOT proceed to Step 2 until all required inputs are collected **and** the analysis output has been displayed.
 
@@ -72,11 +70,11 @@ Do NOT proceed to Step 2 until all required inputs are collected **and** the ana
 
 Invoke `azsdk_typespec_generate_authoring_plan` MCP tool:
 
-| Parameter | Value |
-|-----------|-------|
-| `request` | User request (verbatim) |
-| `additionalInformation` | Relevant `.tsp` code read from the project |
-| `typeSpecProjectRootPath` | TypeSpec project root path |
+| Parameter                 | Value                                                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `request`                 | User request (verbatim)                                                                                      |
+| `additionalInformation`   | All content gathered from Step 1 (intake analysis, user answers, relevant `.tsp` code read from the project) |
+| `typeSpecProjectRootPath` | TypeSpec project root path                                                                                   |
 
 Do NOT proceed to Step 3 without a grounded plan from this tool.
 
@@ -106,12 +104,12 @@ Invoke `azsdk_run_typespec_validation` MCP tool to run validation.
 
 Return the following to the user:
 
-| Item | Detail |
-|------|--------|
-| **Files changed** | List of modified files |
-| **What changed** | Brief description of changes and rationale |
-| **Validation results** | Pass/fail + key output |
-| **References** | Titles/sections/links from retrieved context that justify decisions |
+| Item                   | Detail                                                                                                                                                                        |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Files changed**      | List of modified files                                                                                                                                                        |
+| **What changed**       | Brief description of changes and rationale                                                                                                                                    |
+| **Validation results** | Pass/fail + key output                                                                                                                                                        |
+| **References**         | Titles/sections/links from the azure-sdk-mcp/azsdk_typespec_generate_authoring_plan tool response (do not omit this even for small or trivial changes) that justify decisions |
 
 ---
 
@@ -125,9 +123,9 @@ Read the file `references/next-steps-arm.md` (using the read_file tool) and exec
 
 ## Related Skills & References
 
-| Resource | Purpose |
-|----------|---------|
-| [`references/intake-arm.md`](references/intake-arm.md) | Step 1 — Intake and clarification steps for ARM authoring |
+| Resource                                                       | Purpose                                                              |
+| -------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [`references/intake-arm.md`](references/intake-arm.md)         | Step 1 — Intake and clarification steps for ARM authoring            |
 | [`references/next-steps-arm.md`](references/next-steps-arm.md) | Step 6 — Post-authoring follow-up actions and case-specific guidance |
-| `sdk-generation` skill | SDK generation from TypeSpec |
-| `check-package-readiness` skill | Release readiness checks |
+| `sdk-generation` skill                                         | SDK generation from TypeSpec                                         |
+| `check-package-readiness` skill                                | Release readiness checks                                             |
