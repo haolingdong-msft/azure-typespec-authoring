@@ -9,6 +9,9 @@ This plugin provides the `azure-typespec-author` skill which helps you author, m
 ## Plugin Structure
 
 ```
+.github/
+└── plugin/
+    └── marketplace.json                               # Marketplace manifest
 plugin/
 ├── plugin.json                                    # Plugin manifest
 ├── .mcp.json                                      # MCP server configuration
@@ -22,10 +25,22 @@ plugin/
 
 ## Installation
 
-in an interactive copilot cli session:
+First, register the marketplace in an interactive Copilot CLI session:
 
 ```
-/plugin install haolingdong-msft/azure-typespec-authoring:plugin
+/plugin marketplace add haolingdong-msft/azure-typespec-authoring
+```
+
+Then install the plugin from the marketplace:
+
+```
+/plugin install azure-typespec-authoring@azure-typespec-authoring
+```
+
+## Update
+
+```
+/plugin update azure-typespec-authoring
 ```
 
 ## Verify
