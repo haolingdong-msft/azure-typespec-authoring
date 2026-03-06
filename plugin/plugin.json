@@ -7,6 +7,7 @@
     "url": "https://github.com/haolingdong-msft"
   },
   "homepage": "https://github.com/haolingdong-msft/azure-typespec-authoring",
+  "repository": "https://github.com/haolingdong-msft/azure-typespec-authoring",
   "keywords": ["azure", "typespec", "api", "arm", "specification", "authoring"],
   "skills": "skills/",
   "mcpServers": ".mcp.json"
