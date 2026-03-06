@@ -31,7 +31,7 @@ Register the marketplace first, then install the plugin:
 
 ```shell
 copilot plugin marketplace add haolingdong-msft/azure-typespec-authoring
-copilot plugin install azure-typespec-authoring
+copilot plugin install azure-typespec-authoring@azure-typespec-authoring
 ```
 
 Or in an interactive session:
@@ -55,14 +55,16 @@ Or in an interactive session:
 
 ## Update
 
+If installed from marketplace:
+
 ```shell
-copilot plugin update azure-typespec-authoring
+copilot plugin update azure-typespec-authoring@azure-typespec-authoring
 ```
 
-Or in an interactive session:
+If installed directly from GitHub:
 
-```
-/plugin update azure-typespec-authoring
+```shell
+copilot plugin update haolingdong-msft/azure-typespec-authoring:plugin
 ```
 
 ## Verify
@@ -75,13 +77,15 @@ In an interactive session:
 
 ## Uninstall
 
+If installed from marketplace:
+
 ```shell
-copilot plugin uninstall azure-typespec-authoring
+copilot plugin uninstall azure-typespec-authoring@azure-typespec-authoring
 ```
 
-Or in an interactive session:
+If installed directly from GitHub:
 
-```
-/plugin uninstall azure-typespec-authoring
+```shell
+copilot plugin uninstall haolingdong-msft/azure-typespec-authoring:plugin
 ```
 
