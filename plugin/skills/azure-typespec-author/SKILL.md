@@ -68,6 +68,10 @@ Do NOT proceed to Step 2 until all required inputs are collected **and** the ana
 
 ### Step 2: Retrieve Solution
 
+For add new version cases (case 1 and case 2 in intake), refer to this document https://azure.github.io/typespec-azure/docs/howtos/versioning/arm/01-about-versioning/ to retrieve the solution.
+
+For other cases, invoke `azsdk_typespec_generate_authoring_plan` MCP tool with the following parameters:
+
 Invoke `azsdk_typespec_generate_authoring_plan` MCP tool:
 
 | Parameter                 | Value                                                                                                        |
