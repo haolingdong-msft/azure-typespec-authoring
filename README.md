@@ -17,9 +17,11 @@ plugin/
 ├── .mcp.json                                      # MCP server configuration
 └── skills/
     └── azure-typespec-author/
-        ├── SKILL.md                               # Skill definition
+        ├── SKILL.md                               # Skill definition & workflow
         └── references/
             ├── intake-arm.md                      # Step 1 — Intake & clarification
+            ├── arm-versioning-guide.md            # Step 2 — ARM versioning scenarios
+            ├── arm-versioning-operations.md       # Step 3 — Versioning decorators & patterns
             └── next-steps-arm.md                  # Step 6 — Follow-up actions
 ```
 
@@ -64,7 +66,7 @@ copilot plugin update azure-typespec-authoring@azure-typespec-authoring
 If installed directly from GitHub:
 
 ```shell
-copilot plugin update haolingdong-msft/azure-typespec-authoring:plugin
+copilot plugin update azure-typespec-authoring
 ```
 
 ## Verify
@@ -86,6 +88,6 @@ copilot plugin uninstall azure-typespec-authoring@azure-typespec-authoring
 If installed directly from GitHub:
 
 ```shell
-copilot plugin uninstall haolingdong-msft/azure-typespec-authoring:plugin
+copilot plugin uninstall azure-typespec-authoring
 ```
 
