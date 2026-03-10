@@ -1,98 +1,76 @@
-# azure-typespec-authoring
+# Azure TypeSpec Authoring
 
-A [GitHub Copilot CLI plugin](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating) for authoring Azure TypeSpec API specifications.
+This plugin connects [GitHub Copilot CLI](https://github.com/github/copilot-cli) to the [Azure SDK MCP Server](https://github.com/nicktarlin/azure-sdk-mcp), letting you author, modify, and troubleshoot `.tsp` files for Azure ARM and data-plane API specifications directly from your development environment.
 
-## What It Does
+## Setup
 
-This plugin provides the `azure-typespec-author` skill which helps you author, modify, and troubleshoot `.tsp` files for Azure ARM and data-plane API specifications — including API versioning, resource definitions, CRUD operations, models, enums, and more.
+### 1. Install GitHub Copilot CLI
 
-## Plugin Structure
+Install the GitHub Copilot CLI by following the [official installation guide](https://docs.github.com/en/copilot/how-tos/copilot-cli).
 
-```
-.github/
-└── plugin/
-    └── marketplace.json                           # Marketplace manifest
-plugin/
-├── plugin.json                                    # Plugin manifest
-├── .mcp.json                                      # MCP server configuration
-├── mcp/
-│   ├── azure-sdk-mcp.ps1                          # MCP server entry point
-│   └── scripts/
-│       └── Helpers/
-│           └── AzSdkTool-Helpers.ps1              # MCP tool helpers
-└── skills/
-    └── azure-typespec-author/
-        ├── SKILL.md                               # Skill definition
-        └── references/
-            ├── agentic-search.md                  # Generic doc fetch & local search procedure
-            ├── analyze-project.md                 # Step 1 — Project analysis
-            ├── general-authoring-intake.md         # Step 2 — Intake (general authoring)
-            └── validation.md                      # Step 5 — Validation & checks
-```
-
-## Installation
-
-### Option 1: Install from Marketplace (Recommended)
-
-Register the marketplace first, then install the plugin:
+### 2. Start an Interactive Session
 
 ```shell
-copilot plugin marketplace add haolingdong-msft/azure-typespec-authoring
-copilot plugin install azure-typespec-authoring@typespec-authoring
+copilot --log-dir .logs --log-level debug
 ```
 
-Or in an interactive session:
+### 3. Install the Plugin
+
+In the GitHub Copilot CLI interactive Session
 
 ```
+# Add the repo as a plugin marketplace
 /plugin marketplace add haolingdong-msft/azure-typespec-authoring
-/plugin install azure-typespec-authoring@typespec-authoring
+
+# Install the plugin
+/plugin install azure-typespec-authoring@azure-typespec-authoring
 ```
 
-### Option 2: Install directly from GitHub
-
-```shell
-copilot plugin install haolingdong-msft/azure-typespec-authoring:plugin
-```
-
-Or in an interactive session:
-
-```
-/plugin install haolingdong-msft/azure-typespec-authoring:plugin
-```
-
-## Update
-
-If installed from marketplace:
-
-```shell
-copilot plugin update azure-typespec-authoring@typespec-authoring
-```
-
-If installed directly from GitHub:
-
-```shell
-copilot plugin update haolingdong-msft/azure-typespec-authoring:plugin
-```
-
-## Verify
-
-In an interactive session:
+### 4. Verify Installation
 
 ```
 /skills list
 ```
 
+You should see `azure-typespec-author` in the list of available skills.
+
+## Capabilities
+
+The `azure-typespec-author` skill helps you work with TypeSpec API specifications in the `azure-rest-api-specs` repository:
+
+- **API Versioning** — Add new preview or stable API versions, promote preview to stable
+- **Resource Definitions** — Define tracked, proxy, extension, and child ARM resources
+- **Resource Operations** — CRUD, PATCH, custom actions, async/long-running operations (LRO)
+- **Type Definitions** — Models, enums, unions, properties, decorators, and constraints
+- **Swagger Conversion** — Convert existing Swagger definitions to TypeSpec
+
+## Example Usage
+
+Navigate to your TypeSpec project path. e.g. <your path to spec repo>\specification\widget\ and ask GitHub Copilot CLI to:
+
+- "Add a new preview API version 2026-01-01-preview for widget resource manager"
+- "Add an ARM resource named Asset with CRUD operations"
+- "Add a new stable API version 2026-01-01 for widget resource manager"
+
+The skill will analyze your project, gather requirements, apply changes, and run validation automatically.
+
+## Update
+
+```
+/plugin update azure-typespec-authoring@azure-typespec-authoring
+```
+
 ## Uninstall
 
-If installed from marketplace:
-
-```shell
-copilot plugin uninstall azure-typespec-authoring@typespec-authoring
+```
+/plugin uninstall azure-typespec-authoring@azure-typespec-authoring
 ```
 
-If installed directly from GitHub:
+## Documentation
 
-```shell
-copilot plugin uninstall haolingdong-msft/azure-typespec-authoring:plugin
-```
+For more information, visit:
+
+- [TypeSpec Documentation](https://typespec.io/)
+- [Azure REST API Specs Repository](https://github.com/Azure/azure-rest-api-specs)
+- [GitHub Copilot CLI Plugins](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating)
 
