@@ -11,16 +11,22 @@ This plugin provides the `azure-typespec-author` skill which helps you author, m
 ```
 .github/
 └── plugin/
-    └── marketplace.json                               # Marketplace manifest
+    └── marketplace.json                           # Marketplace manifest
 plugin/
 ├── plugin.json                                    # Plugin manifest
 ├── .mcp.json                                      # MCP server configuration
+├── mcp/
+│   ├── azure-sdk-mcp.ps1                          # MCP server entry point
+│   └── scripts/
+│       └── Helpers/
+│           └── AzSdkTool-Helpers.ps1              # MCP tool helpers
 └── skills/
     └── azure-typespec-author/
         ├── SKILL.md                               # Skill definition
         └── references/
-            ├── intake-arm.md                      # Step 1 — Intake & clarification
-            └── next-steps-arm.md                  # Step 6 — Follow-up actions
+            ├── analyze-project.md                 # Step 1 — Project analysis
+            ├── intake.md                          # Step 2 — Intake (general authoring)
+            └── validation.md                      # Step 5 — Validation & checks
 ```
 
 ## Installation
@@ -31,14 +37,14 @@ Register the marketplace first, then install the plugin:
 
 ```shell
 copilot plugin marketplace add haolingdong-msft/azure-typespec-authoring
-copilot plugin install azure-typespec-authoring@azure-typespec-authoring
+copilot plugin install typespec-authoring@azure-typespec-authoring
 ```
 
 Or in an interactive session:
 
 ```
 /plugin marketplace add haolingdong-msft/azure-typespec-authoring
-/plugin install azure-typespec-authoring
+/plugin install typespec-authoring@azure-typespec-authoring
 ```
 
 ### Option 2: Install directly from GitHub
@@ -58,7 +64,7 @@ Or in an interactive session:
 If installed from marketplace:
 
 ```shell
-copilot plugin update azure-typespec-authoring@azure-typespec-authoring
+copilot plugin update typespec-authoring@azure-typespec-authoring
 ```
 
 If installed directly from GitHub:
@@ -80,7 +86,7 @@ In an interactive session:
 If installed from marketplace:
 
 ```shell
-copilot plugin uninstall azure-typespec-authoring@azure-typespec-authoring
+copilot plugin uninstall typespec-authoring@azure-typespec-authoring
 ```
 
 If installed directly from GitHub:

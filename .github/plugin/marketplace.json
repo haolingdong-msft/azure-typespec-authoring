@@ -1,11 +1,11 @@
 {
-  "name": "azure-typespec-authoring",
+  "name": "typespec-authoring",
   "owner": {
     "name": "Haoling Dong",
     "email": "haolingdong@microsoft.com"
   },
   "metadata": {
-    "description": "Marketplace for Azure TypeSpec API specification authoring plugins.",
+    "description": "Marketplace for TypeSpec API specification authoring plugins.",
     "version": "1.0.0"
   },
   "plugins": [
