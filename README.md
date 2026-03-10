@@ -24,8 +24,9 @@ plugin/
     └── azure-typespec-author/
         ├── SKILL.md                               # Skill definition
         └── references/
+            ├── agentic-search.md                  # Generic doc fetch & local search procedure
             ├── analyze-project.md                 # Step 1 — Project analysis
-            ├── intake.md                          # Step 2 — Intake (general authoring)
+            ├── general-authoring-intake.md         # Step 2 — Intake (general authoring)
             └── validation.md                      # Step 5 — Validation & checks
 ```
 
