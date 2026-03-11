@@ -42,7 +42,7 @@ All tasks follow a 5-step workflow. Steps 2–3 branch by task type; the rest ar
 1. **Analyze Project** — Follow the [project analysis guide](references/analyze-project.md) to collect project context and determine task type.
 
 2. **Intake & Clarification**
-   - *API Versioning:* determine the versioning scenario from Step 1, use [agentic search](references/agentic-search.md) with the scenario URL below to collect information from user. Be sure to use a user-friendly way to collect required inputs from user. e.g., list the existing features (resources, operations, properties) from the latest version and then ask the user which to carry over or exclude, instead of asking for raw input.
+   - *API Versioning:* determine the versioning scenario from Step 1, use [agentic search](references/agentic-search.md) in the document with the scenario URL below to collect information from user. Be sure to use a user-friendly way to collect required inputs from user. e.g., list the existing features (resources, operations, properties) from the latest version and then ask the user which to carry over or exclude, instead of asking for raw input.
 
      | Latest  | Target  | URL to fetch                                                                          |
      | ------- | ------- | ------------------------------------------------------------------------------------- |
