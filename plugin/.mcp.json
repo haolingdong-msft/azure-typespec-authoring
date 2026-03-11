@@ -3,10 +3,7 @@
     "azure-sdk-mcp": {
       "type": "stdio",
       "command": "pwsh",
-      "args": [
-        "-NoProfile", "-Command",
-        "$exe = Join-Path $HOME 'bin' $(if($IsWindows){'azsdk.exe'}else{'azsdk'}); if(Test-Path $exe){ Start-Process -FilePath $exe -ArgumentList 'start' -NoNewWindow -Wait } else { & 'mcp/azure-sdk-mcp.ps1' -Run }"
-      ]
+      "args": ["../mcp/azure-sdk-mcp.ps1", "-Run"]
     }
   }
 }
