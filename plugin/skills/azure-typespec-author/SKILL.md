@@ -3,7 +3,7 @@ name: azure-typespec-author
 license: MIT
 metadata:
   version: "0.0.1"
-description: "Author or modify Azure TypeSpec API specifications in the azure-rest-api-specs repository. USE FOR: Any task that creates, modifies, or troubleshoots .tsp files or TypeSpec API specifications — including but not limited to API versioning (e.g. add new preview version, add new stable version, add new api version, add preview api version, add stable api version), ARM or data-plane resource definitions (tracked, proxy, extension, child resources), resource manager specifications, resource operations (CRUD, PATCH, custom actions, async/LRO), models, enums, unions, properties, decorators, constraints, and swagger-to-TypeSpec conversion. DO NOT USE FOR: SDK generation from TypeSpec, releasing SDK packages, single MCP tool calls that do not require multi-step workflows. TOOLS/COMMANDS: azsdk_typespec_generate_authoring_plan, azsdk_run_typespec_validation"
+description: "Author or modify Azure TypeSpec API specifications in the azure-rest-api-specs repository. USE FOR: Any task that creates, modifies, or troubleshoots .tsp files or TypeSpec API specifications — including but not limited to API versioning for ARM services (e.g. add new preview version, add new stable version, add new api version, add preview api version, add stable api version; NOTE: API versioning for data-plane services is not fully supported yet), ARM or data-plane resource definitions (tracked, proxy, extension, child resources), resource manager specifications, resource operations (CRUD, PATCH, custom actions, async/LRO), models, enums, unions, properties, decorators, constraints, and swagger-to-TypeSpec conversion. DO NOT USE FOR: SDK generation from TypeSpec, releasing SDK packages, single MCP tool calls that do not require multi-step workflows. TOOLS/COMMANDS: azsdk_typespec_generate_authoring_plan, azsdk_run_typespec_validation"
 compatibility: >-
   Requires: azure-sdk-mcp server with azsdk_typespec_generate_authoring_plan and azsdk_run_typespec_validation tools.
 ---
@@ -32,7 +32,7 @@ Requires `azure-sdk-mcp` server with TypeSpec authoring and validation tools.
 
 | Type                  | Description                                                       | Examples                                               |
 | --------------------- | ----------------------------------------------------------------- | ------------------------------------------------------ |
-| **API Versioning**    | Adding a new preview or stable API version to an existing service | "add new preview version", "promote preview to stable" |
+| **API Versioning (ARM only)** | Adding a new preview or stable API version to an existing ARM service. Data-plane API versioning is not fully supported yet. | "add new preview version", "promote preview to stable" |
 | **General Authoring** | Any other TypeSpec authoring task that modifies `.tsp` files      | "add a resource", "add CRUD operations", "add LRO"    |
 
 ## Steps
