@@ -9,7 +9,7 @@ param(
     [string]$Version, # Default to latest
     [string]$InstallDirectory = '',
     [string]$Repository = 'Azure/azure-sdk-tools',
-    [string]$RunDirectory = (Resolve-Path (Join-Path $PSScriptRoot .. .. ..)),
+    [string]$RunDirectory = (Get-Location).Path,
     [switch]$Run,
     [switch]$UpdateVsCodeConfig,
     [switch]$UpdatePathInProfile
