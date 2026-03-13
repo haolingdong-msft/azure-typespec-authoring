@@ -15,22 +15,20 @@ A skill that helps to author or modify Azure TypeSpec API specifications in the 
 
 ✅ This version supports basic Azure data-plane and API version evolution scenarios. 
 
+📖 **Using outside the spec repo?** See the [Plugin Install Guide](docs/install-plugin-outside-spec-repo.md) for detailed instructions on prerequisites, how it works, and troubleshooting.
+
 ### 1. Install GitHub Copilot CLI
 
 Install the GitHub Copilot CLI by following the [official installation guide](https://docs.github.com/en/copilot/how-tos/copilot-cli).
 
-### 2. Install the Plugin
+### 2. Add the Skill
 
 ```shell
-# Add the repo as a plugin marketplace
-copilot plugin marketplace add haolingdong-msft/azure-typespec-authoring
-
-# Install the plugin
-copilot plugin install azure-typespec-authoring@azure-typespec-authoring
+npx skills add https://github.com/haolingdong-msft/azure-typespec-authoring/tree/main/plugin/skills
 ```
 
 ⚠️
-**If using inside the `azure-rest-api-specs` repo:** The project-level `azure-typespec-author` skill **always overrides** the plugin version. You **must** rename the project-level skill file to disable it, otherwise the plugin skill will be silently ignored:
+**If using inside the `azure-rest-api-specs` repo:** The project-level `azure-typespec-author` skill **always overrides** the plugin version. You **must** rename the project-level skill file to disable it, otherwise the latest dev version skill will be silently ignored:
 
 ```shell
 mv .github/skills/azure-typespec-author/SKILL.md .github/skills/azure-typespec-author/SKILL.md.disabled
@@ -45,20 +43,7 @@ Navigate to your TypeSpec project path (e.g. `<your path to spec repo>\specifica
 copilot
 ```
 
-### 4. Verify Installation
-
-In the current active copilot session.
-
-```
-/skills
-```
-
-You should see `azure-typespec-author (plugin)` in the list of available skills. 
-
-![alt text](image.png)
-
-
-### 5. Input prompts
+### 4. Input prompts
 
 
 ## Sample promtps:
@@ -74,16 +59,22 @@ The `azure-typespec-author` skill helps you work with TypeSpec API specification
 - **Resource Operations** — CRUD, PATCH, custom actions, async/long-running operations (LRO)
 - **Type Definitions** — Models, enums, unions, properties, decorators, and constraints
 
+## Author TypeSpec Outside of Spec Repo
+
+See the [Plugin Install Guide](docs/install-plugin-outside-spec-repo.md) for how to install and use the plugin outside the `azure-rest-api-specs` repository.
+
 ## Update
 
+Re-run the add command to update to the latest version:
+
 ```shell
-copilot plugin update azure-typespec-authoring@azure-typespec-authoring
+npx skills add haolingdong-msft/azure-typespec-authoring --skill azure-typespec-author
 ```
 
 ## Uninstall
 
 ```shell
-copilot plugin uninstall azure-typespec-authoring@azure-typespec-authoring
+npx skills remove azure-typespec-author
 ```
 
 ## Documentation
