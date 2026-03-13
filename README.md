@@ -6,14 +6,14 @@ A skill that helps to author or modify Azure TypeSpec API specifications in the 
 
 ### Use Published Alpha Version
 
-This version is lack of support for API version evolution and Azure data-plane scenarios.
+⚠️ Please note: This version is lack of support for API version evolution and Azure data-plane scenarios. 
 
 Follow the [Quick Start Guide](https://gist.github.com/haolingdong-msft/070ee0bfc3aab9c6ea24b084ec06a734#file-typespec-authoring-agent-quick-start-md).
 
 
 ### Use Latest Dev Version
 
-This version supports basic Azure data-plane and API version evolution scenarios. 
+✅ This version supports basic Azure data-plane and API version evolution scenarios. 
 
 ### 1. Install GitHub Copilot CLI
 
