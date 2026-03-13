@@ -2,16 +2,16 @@
 
 A skill that helps to author or modify Azure TypeSpec API specifications in the azure-rest-api-specs repository. USE FOR: Any task that creates, modifies, or troubleshoots .tsp files or TypeSpec API specifications — including but not limited to API versioning, ARM or data-plane resource definitions (tracked, proxy, extension, child resources), resource operations (CRUD, PATCH, custom actions, async/LRO), models, enums, unions, properties, decorators, constraints.
 
-## Setup
+## Quick Start
 
-### Use Published Alpha Version
+### 🚀 Get Started in 1 Minute with Published Alpha Version
+
+👉 Follow the [Quick Start Guide](https://gist.github.com/haolingdong-msft/070ee0bfc3aab9c6ea24b084ec06a734#file-typespec-authoring-agent-quick-start-md).
 
 ⚠️ Please note: This version is lack of support for API version evolution and Azure data-plane scenarios. 
 
-Follow the [Quick Start Guide](https://gist.github.com/haolingdong-msft/070ee0bfc3aab9c6ea24b084ec06a734#file-typespec-authoring-agent-quick-start-md).
 
-
-### Use Latest Dev Version
+### Want to use Latest Dev Version?
 
 ✅ This version supports basic Azure data-plane and API version evolution scenarios. 
 
@@ -21,16 +21,20 @@ Install the GitHub Copilot CLI by following the [official installation guide](ht
 
 ### 2. Install the Plugin
 
-
 ```shell
-copilot plugin install haolingdong-msft/azure-typespec-authoring:plugin
+# Add the repo as a plugin marketplace
+copilot plugin marketplace add haolingdong-msft/azure-typespec-authoring
+
+# Install the plugin
+copilot plugin install azure-typespec-authoring@azure-typespec-authoring
 ```
 
-> **If using inside the `azure-rest-api-specs` repo:** The project-level alpha version `azure-typespec-author` skill overrides the plugin one. You need to rename the project-level skill file to disable it:
->
-> ```shell
-> mv .github/skills/azure-typespec-author/SKILL.md .github/skills/azure-typespec-author/SKILL.md.disabled
-> ```
+⚠️
+**If using inside the `azure-rest-api-specs` repo:** The project-level `azure-typespec-author` skill **always overrides** the plugin version. You **must** rename the project-level skill file to disable it, otherwise the plugin skill will be silently ignored:
+
+```shell
+mv .github/skills/azure-typespec-author/SKILL.md .github/skills/azure-typespec-author/SKILL.md.disabled
+```
 
 
 ### 3. Start an Interactive Session
