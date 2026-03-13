@@ -4,18 +4,16 @@ A skill that helps to author or modify Azure TypeSpec API specifications in the 
 
 ## Quick Start
 
-### 🚀 Get Started in 1 Minute with Published Alpha Version
+### 🚀 Option A: Get Started in 1 Minute with Published Alpha Version
 
 👉 Follow the [Quick Start Guide](https://gist.github.com/haolingdong-msft/070ee0bfc3aab9c6ea24b084ec06a734#file-typespec-authoring-agent-quick-start-md).
 
 ⚠️ Please note: This version is lack of support for API version evolution and Azure data-plane scenarios. 
 
 
-### Want to use Latest Dev Version?
+### Option B: Want to use Latest Dev Version?
 
 ✅ This version supports basic Azure data-plane and API version evolution scenarios. 
-
-📖 **Using outside the spec repo?** See the [Plugin Install Guide](docs/install-plugin-outside-spec-repo.md) for detailed instructions on prerequisites, how it works, and troubleshooting.
 
 ### 1. Install GitHub Copilot CLI
 
@@ -50,14 +48,6 @@ copilot
 
 Refer [here](https://gist.github.com/haolingdong-msft/070ee0bfc3aab9c6ea24b084ec06a734#sample-prompts).
 
-## Capabilities
-
-The `azure-typespec-author` skill helps you work with TypeSpec API specifications in the `azure-rest-api-specs` repository:
-
-- **API Versioning** — Add new preview or stable API versions, promote preview to stable
-- **Resource Definitions** — Define tracked, proxy, extension, and child ARM resources
-- **Resource Operations** — CRUD, PATCH, custom actions, async/long-running operations (LRO)
-- **Type Definitions** — Models, enums, unions, properties, decorators, and constraints
 
 ## Author TypeSpec Outside of Spec Repo
 
