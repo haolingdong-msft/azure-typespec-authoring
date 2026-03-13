@@ -1,8 +1,19 @@
-# Azure TypeSpec Authoring
+# Azure TypeSpec Authoring 
 
 This plugin connects [GitHub Copilot CLI](https://github.com/github/copilot-cli) to the [Azure SDK MCP Server](https://github.com/nicktarlin/azure-sdk-mcp), letting you author, modify, and troubleshoot `.tsp` files for Azure ARM and data-plane API specifications directly from your development environment.
 
 ## Setup
+
+### Use Published Alpha Version
+
+This version is lack of support for API version evolution and Azure data-plane scenarios.
+
+Follow the [Quick Start Guide](https://gist.github.com/haolingdong-msft/070ee0bfc3aab9c6ea24b084ec06a734#file-typespec-authoring-agent-quick-start-md).
+
+
+### Use Latest Dev Version
+
+This version supports basic Azure data-plane and API version evolution scenarios. 
 
 ### 1. Install GitHub Copilot CLI
 
@@ -10,56 +21,45 @@ Install the GitHub Copilot CLI by following the [official installation guide](ht
 
 ### 2. Install the Plugin
 
-```shell
-# Add the repo as a plugin marketplace
-copilot plugin marketplace add haolingdong-msft/azure-typespec-authoring
-
-# Install the plugin
-copilot plugin install azure-typespec-authoring@azure-typespec-authoring
-```
-
-### 3. Verify Installation
 
 ```shell
-copilot skills list
+copilot plugin install haolingdong-msft/azure-typespec-authoring:plugin
 ```
 
-You should see `azure-typespec-author` in the list of available skills.
+> **If using inside the `azure-rest-api-specs` repo:** The project-level alpha version `azure-typespec-author` skill overrides the plugin one. You need to rename the project-level skill file to disable it:
+>
+> ```shell
+> mv .github/skills/azure-typespec-author/SKILL.md .github/skills/azure-typespec-author/SKILL.md.disabled
+> ```
 
-### 4. Start an Interactive Session
+
+### 3. Start an Interactive Session
 
 Navigate to your TypeSpec project path (e.g. `<your path to spec repo>\specification\widget\`) and start a session:
 
 ```shell
-copilot --log-dir .logs --log-level debug
+copilot
 ```
+
+### 4. Verify Installation
+
+In the current active copilot session.
+
+```
+/skills
+```
+
+You should see `azure-typespec-author (plugin)` in the list of available skills. 
+
+![alt text](image.png)
+
 
 ### 5. Input prompts
 
 
 ## Sample promtps:
 
-### API Versioning
-
-- "Add a new preview API version 2026-01-01-preview for widget resource manager"
-- "Add a new stable API version 2026-01-01 for widget resource manager"
-
-### Resource Definitions
-
-- "Add an ARM resource named Asset with CRUD operations"
-- "Add a child resource named Component under the Asset resource"
-- "Add a proxy resource named Config under the Asset resource"
-
-### Resource Operations
-
-- "Add a custom action restartAsset to the Asset resource"
-- "Add an async/LRO operation to export data from the Asset resource"
-- "Add a PATCH operation to the Asset resource"
-
-### Models & Types
-
-- "Add an enum named AssetStatus with values Active, Inactive, and Deprecated"
-- "Add a new property tags to the Asset resource"
+Refer [here](https://gist.github.com/haolingdong-msft/070ee0bfc3aab9c6ea24b084ec06a734#sample-prompts).
 
 ## Capabilities
 
