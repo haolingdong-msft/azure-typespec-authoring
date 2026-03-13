@@ -1,6 +1,6 @@
 # Azure TypeSpec Authoring 
 
-This plugin connects [GitHub Copilot CLI](https://github.com/github/copilot-cli) to the [Azure SDK MCP Server](https://github.com/nicktarlin/azure-sdk-mcp), letting you author, modify, and troubleshoot `.tsp` files for Azure ARM and data-plane API specifications directly from your development environment.
+A skill that helps to author or modify Azure TypeSpec API specifications in the azure-rest-api-specs repository. USE FOR: Any task that creates, modifies, or troubleshoots .tsp files or TypeSpec API specifications — including but not limited to API versioning, ARM or data-plane resource definitions (tracked, proxy, extension, child resources), resource operations (CRUD, PATCH, custom actions, async/LRO), models, enums, unions, properties, decorators, constraints.
 
 ## Setup
 
