@@ -22,7 +22,7 @@ Install the GitHub Copilot CLI by following the [official installation guide](ht
 ### 2. Add the Skill
 
 ```shell
-npx skills add https://github.com/haolingdong-msft/azure-typespec-authoring/tree/main/plugin/skills
+npx skills add haolingdong-msft/azure-typespec-authoring --skill azure-typespec-author
 ```
 
 ⚠️

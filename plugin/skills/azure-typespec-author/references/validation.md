@@ -2,16 +2,16 @@
 
 After applying changes (Step 4), run through all sub-steps below in order.
 
-| Sub-step | Action                     | When            |
-| -------- | -------------------------- | --------------- |
-| 5.1      | TypeSpec Validation        | Always          |
-| 5.2      | Output Path Verification   | Always          |
-| 5.3      | Example Verification       | Always          |
-| 5.4      | Breaking Change Check      | Stable API only |
+| Sub-step | Action                   | When            |
+| -------- | ------------------------ | --------------- |
+| 5.1      | TypeSpec Validation      | Always          |
+| 5.2      | Output Path Verification | Always          |
+| 5.3      | Example Verification     | Always          |
+| 5.4      | Breaking Change Check    | Stable API only |
 
 ### Step 5.1: TypeSpec Validation
 
-Invoke `azsdk_run_typespec_validation` with the project root path.
+Invoke `azure-sdk-mcp:azsdk_run_typespec_validation` with the project root path.
 
 - **Pass** → proceed to Step 5.2.
 - **Fail** → fix with minimal, scoped changes, then re-run. Repeat until resolved.
@@ -34,6 +34,8 @@ If misplaced files are found → check `tspconfig.yaml` emitter output settings 
 
 ### Step 5.3: Example Verification
 
+> Applies only for API Version Evolution Tasks
+
 Verify that files under `examples/` are consistent with the current API version:
 
 1. Each operation should have a corresponding example file.
@@ -54,9 +56,10 @@ Compare changes against the **latest published stable version** and flag:
 | Changed property type         | `string` → `int32`                           |
 | Changed required ↔ optional   | optional `location` becomes required         |
 | Removed resource or operation | `DELETE /widgets/{id}` no longer exists      |
-| Changed response status code  | `200 OK` → `202 Accepted`                   |
+| Changed response status code  | `200 OK` → `202 Accepted`                    |
 | Removed enum member           | `"Running"` removed from `ProvisioningState` |
 
 If breaking changes are detected:
+
 1. List each with before/after comparison.
 2. Require explicit user confirmation before proceeding.
